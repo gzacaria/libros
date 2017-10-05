@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableDetalleFactura extends Migration
+class CreateTableDetallefactura extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,12 @@ class CreateTableDetalleFactura extends Migration
     {
         Schema::create('detalle_factura', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_factura')->unsigned();
-            $table->foreign('id_factura')->references('id')->on('facturas');
-            $table->integer('id_libros')->unsigned();
-            $table->foreign('id_libros')->references('id')->on('libros');
-            $table->string('detalle_factura_cantidad');
-            $table->float('detalle_factura_precio_unitario',8,2);
+            $table->integer('factura_id')->unsigned();
+            $table->foreign('factura_id')->references('id')->on('factura');
+            $table->integer('libro_id')->unsigned();
+            $table->foreign('libro_id')->references('id')->on('libros');
+            $table->integer('cantidad');
+            $table->float('precio', 4, 2);
             $table->timestamps();
         });
     }

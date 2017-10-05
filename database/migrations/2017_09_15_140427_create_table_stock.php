@@ -15,10 +15,10 @@ class CreateTableStock extends Migration
     {
         Schema::create('stock', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_libro')->unsigned();
-            $table->foreign('id_libro')->references('id')->on('libros');
+            $table->integer('libro_id')->unsigned();
+            $table->foreign('libro_id')->references('id')->on('libros');
+            $table->integer('cantidad_actual');
             $table->integer('cantidad_minima');
-            $table->integer('cantidad actual');
             $table->timestamps();
         });
     }
