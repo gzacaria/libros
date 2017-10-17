@@ -15,4 +15,4 @@ Route::resource("clientes","ClienteController"); //asignamos un recurso a una ru
 Route::resource("libros","LibrosController");
 Route::resource("proveedores","ProveedoresController");
 Route::resource("stock","StockController");
-Route::resource("contactos","ContactoContoller");
+Route::resource("contactos","ContactoController");
