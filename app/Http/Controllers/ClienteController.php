@@ -42,6 +42,50 @@ class ClienteController extends Controller
     	$cliente->persona_id = $persona->id;
     	$cliente->save();
 
+        $mensaje="Cliente creado correctamente.";
+        return redirect("clientes/create")->with("mensaje",$mensaje);
+    }
+    public function show($id)
+    {
+        $cliente=Cliente::find($id); //encontrar un cliente que coincida con esa id
+        return view("clientes.show",["cliente"=>$cliente]);
+    }
+    public function destroy($id)
+    {
+        $cliente=Cliente::find($id);
+        $persona=$cliente->persona;
+        $cliente->delete();
+        $persona->delete();
+        $mensaje="Cliente eliminado correctamente.";
+        return redirect("clientes")->with("mensaje",$mensaje);
+    }
+    public function edit($id)
+    {
+        $cliente=Cliente::find($id);
+        return view("clientes.edit",["cliente"=>$cliente]);
+    }
+    public function update(Request $request,$id)
+    {
+        //obtener datos del formulario
+        $nombre = $request->input("txtNombre");
+        $apellido = $request->input("txtApellido");
+        $dni = $request->input("txtDNI");
+        $fechaNacimiento = $request->input("txtFechaNacimiento");
+        $domicilio = $request->input("txtDomicilio");
 
+        //obtener el cliente a modificar
+        $cliente=Cliente::find($id);
+
+        //asignar datos al cliente
+        $cliente->persona->nombre=$nombre;
+        $cliente->persona->apellido=$apellido;
+        $cliente->persona->dni=$dni;
+        $cliente->persona->fecha_nacimiento=$fechaNacimiento;
+        $cliente->persona->domicilio=$domicilio;
+        $cliente->persona->save();
+        //$cliente->save();
+
+        $mensaje="Cliente modificado correctamente";
+        return redirect("clientes/".$id."/edit")->with("mensaje",$mensaje);
     }
 }
