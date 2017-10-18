@@ -1,7 +1,7 @@
 @extends('menuPrincipal')
 @section('content')
 
-<h1 align="center">Registro de Contactos</h1>
+<h1 align="center">Contactos</h1>
 <br>
 <table border="1" align="center">
 	<tr>
