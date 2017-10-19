@@ -21,6 +21,8 @@ Proveedor: <select name="cboProveedor">
 <option value="{{$proveedor->id}}">{{$proveedor->razon_social}}</option>
 @endforeach
 </select><br>
+Cantidad Actual: <input type="text" name="txtCantidadActual"><br>
+Cantidad Minima: <input type="text" name="txtCantidadMinima"><br>
 <input type="submit" value="Guardar datos">
 </form>
 

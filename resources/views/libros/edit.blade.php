@@ -22,6 +22,8 @@
 		<option value="{{$proveedor->id}}">{{$proveedor->razon_social}}</option>
 		@endforeach
 	</select><br>
+	Cantidad Actual: <input type="text" name="txtCantidadActual" value="{{$stock->cantidad_actual}}"><br>
+	Cantidad Minima: <input type="text" name="txtCantidadMinima" value="{{$stock->cantidad_minima}}"><br>
 	<input type="submit" value="Guardar datos">
 </form>
 

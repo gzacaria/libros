@@ -10,11 +10,14 @@
 		<th>Autor</th>
 		<th>Genero</th>
 		<th>Precio</th>
+		<th>Cantidad Actual</th>
+		<th>Cantidad Minima</th>
 		<th></th>
 		<th></th>
     </tr>
 
     @foreach ($libros_list as $libro)
+    @foreach ($stock_list as $stock)
 
    	<tr>
 		<td>{{ $libro->titulo }}</td>
@@ -22,10 +25,13 @@
 		<td>{{ $libro->autor }}</td>
 		<td>{{ $libro->genero }}</td>
 		<td>{{ $libro->precio }}</td>
+		<td>{{ $stock->cantidad_actual }}</td>
+		<td>{{ $stock->cantidad_minima }}</td>
 		<td><a href="libros/{{$libro->id}}/edit">Modificar</a></td>
 		<td><a href="libros/{{$libro->id}}">Eliminar</a></td>
     </tr>
 
+    @endforeach
     @endforeach
 </table>
 <br>
