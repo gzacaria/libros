@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Persona;
 use App\Models\Cliente;
+use App\Models\Contacto;
 
 class ClienteController extends Controller
 {
@@ -53,7 +54,9 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         $cliente=Cliente::find($id);
+        $contacto=Contacto::find($id);
         $persona=$cliente->persona;
+        $contacto->delete();
         $cliente->delete();
         $persona->delete();
         $mensaje="Cliente eliminado correctamente.";
