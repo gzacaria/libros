@@ -21,7 +21,6 @@ class ProveedoresController extends Controller
 
     public function store(Request $request)
     {
-    	// obtener datos enviados desde formulario
     	$razonSocial = $request->input("txtRazonSocial");
     	$domicilio = $request->input("txtDomicilio");
     	$email = $request->input("txtEmail");
@@ -41,7 +40,7 @@ class ProveedoresController extends Controller
     }
     public function show($id)
     {
-        $proveedor=Proveedor::find($id); //encontrar un proveedor que coincida con esa id
+        $proveedor=Proveedor::find($id);
         return view("proveedores.show",["proveedor"=>$proveedor]);
     }
     public function destroy($id)
@@ -51,6 +50,7 @@ class ProveedoresController extends Controller
         $mensaje="Proveedor eliminado correctamente.";
         return redirect("proveedores")->with("mensaje",$mensaje);
     }
+    
     public function edit($id)
     {
         $proveedor=Proveedor::find($id);
@@ -58,17 +58,14 @@ class ProveedoresController extends Controller
     }
     public function update(Request $request,$id)
     {
-        //obtener datos del formulario
         $razonSocial = $request->input("txtRazonSocial");
         $domicilio = $request->input("txtDomicilio");
         $email = $request->input("txtEmail");
         $celular = $request->input("txtNumeroCelular");
         $telefono = $request->input("txtNumeroTelefono");
 
-        //obtener el cliente a modificar
         $proveedor=Proveedor::find($id);
 
-        //asignar datos al cliente
         $proveedor->razon_social = $razonSocial;
         $proveedor->domicilio = $domicilio;
         $proveedor->email = $email;

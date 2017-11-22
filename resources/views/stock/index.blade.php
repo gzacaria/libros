@@ -12,11 +12,11 @@
 
     @foreach ($stock_list as $stock)
 
-   	<tr>
-		<td>{{ $stock->libro_id }}</td>
-		<td>{{ $stock->cantidad_actual }}</td>
-		<td>{{ $stock->cantidad_minima }}</td>
-	</tr>
+		<tr>
+			<td>{{ $stock->libro->titulo }}</td>
+			<td>{{ $stock->cantidad_actual }}</td>
+			<td>{{ $stock->cantidad_minima }}</td>
+		</tr>
 
     @endforeach
 </table>

@@ -24,7 +24,6 @@ class LibrosController extends Controller
 
     public function store(Request $request)
     {
-    	// obtener datos enviados desde formulario
     	$titulo = $request->input("txtTitulo");
     	$editorial = $request->input("txtEditorial");
     	$autor = $request->input("txtAutor");
@@ -58,7 +57,7 @@ class LibrosController extends Controller
     }
     public function show($id)
     {
-        $libro=Libro::find($id); //encontrar un libro que coincida con esa id
+        $libro=Libro::find($id);
         return view("libros.show",["libro"=>$libro]);
     }
     public function destroy($id)
@@ -80,7 +79,6 @@ class LibrosController extends Controller
     }
     public function update(Request $request,$id)
     {
-        //obtener datos del formulario
         $titulo = $request->input("txtTitulo");
         $editorial = $request->input("txtEditorial");
         $autor = $request->input("txtAutor");
@@ -92,18 +90,15 @@ class LibrosController extends Controller
         $cantidad_actual = $request->input("txtCantidadActual");
         $cantidad_minima = $request->input("txtCantidadMinima");
 
-        //obtener el cliente a modificar
         $libro=Libro::find($id);
         $stock=Stock::find($id);
 
-        //validacion
         if ($cantidad_actual < $cantidad_minima)
         {
             $mensaje = "Cantidad Actual debe ser mayor o igual a Cantidad Minima";
             return redirect("stock/".$id."/edit")->with("mensaje",$mensaje);
         }
 
-        //asignar datos al cliente
         $libro->titulo = $titulo;
         $libro->editorial = $editorial;
         $libro->autor = $autor;

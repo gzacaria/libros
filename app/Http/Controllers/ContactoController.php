@@ -22,7 +22,6 @@ class ContactoController extends Controller
 
     public function store(Request $request)
     {
-    	// obtener datos enviados desde formulario
     	$persona_id = $request->input("cboPersona");
     	$email = $request->input("txtEmail");
     	$celular = $request->input("txtCelular");
@@ -59,7 +58,6 @@ class ContactoController extends Controller
     }
     public function update(Request $request,$id)
     {
-        //obtener datos del formulario
         $persona_id = $request->input("cboPersona");
     	$email = $request->input("txtEmail");
     	$celular = $request->input("txtCelular");

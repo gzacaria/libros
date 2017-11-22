@@ -8,8 +8,8 @@
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	Persona: <select name="cboPersona" value="{{$contacto->persona_id}}">
 		@foreach ($personas_list as $personas)
-		<option value="{{$personas->id}}">{{$personas->nombre}} {{ $personas->apellido }}</option>
-	@endforeach
+			<option value="{{$personas->id}}">{{$personas->nombre}} {{ $personas->apellido }}</option>
+		@endforeach
     </select><br>
     Email: <input type="text" name="txtEmail" value="{{$contacto->email}}"><br>
     Nº de Celular: <input type="text" name="txtCelular" value="{{$contacto->celular}}"><br>

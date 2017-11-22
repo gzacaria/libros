@@ -17,21 +17,21 @@
     </tr>
 
     @foreach ($libros_list as $libro)
-    @foreach ($stock_list as $stock)
+		@foreach ($stock_list as $stock)
 
-   	<tr>
-		<td>{{ $libro->titulo }}</td>
-		<td>{{ $libro->editorial }}</td>
-		<td>{{ $libro->autor }}</td>
-		<td>{{ $libro->genero }}</td>
-		<td>{{ $libro->precio }}</td>
-		<td>{{ $stock->cantidad_actual }}</td>
-		<td>{{ $stock->cantidad_minima }}</td>
-		<td><a href="libros/{{$libro->id}}/edit">Modificar</a></td>
-		<td><a href="libros/{{$libro->id}}">Eliminar</a></td>
-    </tr>
+   			<tr>
+				<td>{{ $libro->titulo }}</td>
+				<td>{{ $libro->editorial }}</td>
+				<td>{{ $libro->autor }}</td>
+				<td>{{ $libro->genero }}</td>
+				<td>{{ $libro->precio }}</td>
+				<td>{{ $stock->cantidad_actual }}</td>
+				<td>{{ $stock->cantidad_minima }}</td>
+				<td><a href="libros/{{$libro->id}}/edit">Modificar</a></td>
+				<td><a href="libros/{{$libro->id}}">Eliminar</a></td>
+    		</tr>
 
-    @endforeach
+    	@endforeach
     @endforeach
 </table>
 <br>
